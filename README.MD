@@ -17,3 +17,32 @@
 - **TODO 2:** Add a rate limiting middleware
 - **TODO 3:** Frontend in ejs (low pri)
 - **TODO 4:** Frontend in React
+
+# API Endpoints
+
+## User
+
+| Endpoint | Method | Body | Response | Description |
+| --- | --- | --- | --- | --- |
+| /api/v1/user/signup | POST | {email: string, password: string, firstName: string, lastName: string} | {message: string, success: boolean} | User signup |
+| /api/v1/user/signin | POST | {email: string, password: string} | {message: string, success: boolean} | User signin |
+| /api/v1/user/purchases | POST | {courseId: string} | {message: string, success: boolean, courses: courses} | Purchase a course |
+| /api/v1/user/signout | GET | {} | {message: string, success: boolean} | User signout |
+
+## Admin
+
+| Endpoint | Method | Body | Response | Description |
+| --- | --- | --- | --- | --- |
+| /api/v1/admin/signup | POST | {email: string, password: string, firstName: string, lastName: string} | {message: string, success: boolean}  | Admin signup |
+| /api/v1/admin/signin | POST | {email: string, password: string} | {message: string, success: boolean} | Admin signin |
+| /api/v1/admin/signout | GET | {} | {message: string, success: boolean} | Admin signout |
+| /api/v1/admin/course | POST | {title: string, description: string, imageUrl: string, price: number} | {message: string, success: boolean, courseId: string} | Create a course |
+| /api/v1/admin/course | PUT | {title: string, description: string, imageUrl: string, price: number, courseId: string} | {message: string, success: boolean} | Update a course |
+| /api/v1/admin/course/bulk | GET | {} | {message: string, success: boolean, courses: courses} | See all courses |
+
+## Course
+
+| Endpoint | Method | Body | Response | Description |
+| --- | --- | --- | --- | --- |
+| /api/v1/course/purchase | POST | {courseId: string} | {message: string, success: boolean, courses: courses} | Purchase a course |
+| /api/v1/course/preview | GET | {} | {message: string, success: boolean, courses: courses} | See all courses |
